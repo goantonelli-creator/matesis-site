@@ -103,6 +103,13 @@ function Advisory() {
             </div>
           ))}
         </div>
+        <div className="advisory__highlight">
+          <div className="advisory__highlight-icon">◎</div>
+          <div className="advisory__highlight-text">
+            <h4>Nessun costo di sviluppo software.</h4>
+            <p>Nei progetti Advisory, la configurazione della piattaforma è inclusa nel progetto. Non ci sono costi di sviluppo o implementazione separati. L'unico costo ricorrente è il canone mensile della piattaforma.</p>
+          </div>
+        </div>
         <div className="advisory__quote">
           <blockquote>"Il nostro principio è formare i clienti a leggere i risultati, non a produrli. La dipendenza dal consulente è un fallimento del consulente."</blockquote>
           <cite>— Goffredo Antonelli, fondatore</cite>
@@ -182,7 +189,7 @@ function Platform() {
         <div className="section-header section-header--light">
           <span className="tag tag--orange">Matesis Platform</span>
           <h2 className="section-title section-title--light">Il software nato<br/>dalla consulenza.</h2>
-          <p className="section-sub section-sub--light">Non è un tool comprato da un catalogo. È la digitalizzazione diretta di anni di metodologia consulenziale — costruita per le PMI italiane, non per le enterprise americane.</p>
+          <p className="section-sub section-sub--light">Non è un tool comprato da un catalogo. È la digitalizzazione diretta di anni di metodologia consulenziale — costruita per le PMI italiane, non per le enterprise americane. Puoi partire dal software, dalla consulenza, o da entrambi: ogni componente ha valore autonomo.</p>
         </div>
         <div className="platform__features">
           <div className="platform__feature">
@@ -258,7 +265,7 @@ function About() {
         <div className="about__text">
           <span className="tag tag--navy">Chi siamo</span>
           <h2 className="section-title">Matesis è nato<br/>da un problema reale.</h2>
-          <p>Goffredo Antonelli è un commercialista e consulente di performance management. Dopo anni di engagement con PMI italiane su temi di controllo di gestione e sviluppo HR, ha costruito Matesis — prima come metodo, poi come software.</p>
+          <p>Goffredo Antonelli è un commercialista, un manager e consulente di performance management. Dopo anni di engagement con PMI italiane su temi di controllo di gestione e sviluppo HR, ha costruito Matesis — prima come metodo, poi come software.</p>
           <p>La piattaforma è nata perché i tool esistenti erano o troppo grandi (pensati per corporate) o troppo piccoli (fogli Excel con un'interfaccia). Matesis occupa lo spazio intermedio: strutturato come un enterprise, usabile come uno strumento quotidiano.</p>
           <div className="about__links">
             <a href="https://www.goffredoantonelli.com" target="_blank" rel="noopener" className="btn btn--outline-navy">Profilo di Goffredo →</a>
