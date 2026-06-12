@@ -427,4 +427,63 @@
 .cta-form__thanks span { color: var(--orange); font-size: 20px; margin-right: 8px; }
 @media (max-width: 768px) {
   .cta-form__row { grid-template-columns: 1fr; }
+}/* ── COME FUNZIONA ────────────────────────────────────────────────────── */
+.come-funziona {
+  background: var(--bg-white);
+  padding: 100px 0;
+}
+.cf__steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  margin-bottom: 48px;
+  position: relative;
+}
+.cf__step {
+  padding: 32px 28px;
+  position: relative;
+  border-top: 3px solid var(--border);
+  transition: border-color 0.2s;
+}
+.cf__step:hover { border-top-color: var(--navy); }
+.cf__step-num {
+  font-family: var(--font-display);
+  font-size: 48px;
+  font-weight: 800;
+  color: var(--border);
+  line-height: 1;
+  margin-bottom: 16px;
+  letter-spacing: -0.03em;
+}
+.cf__step-icon { font-size: 22px; color: var(--navy); margin-bottom: 16px; }
+.cf__step h3 { font-family: var(--font-display); font-size: 18px; font-weight: 700; margin-bottom: 12px; }
+.cf__step p { font-size: 14px; line-height: 1.7; color: var(--text-secondary); }
+.cf__arrow {
+  position: absolute;
+  top: 40%;
+  right: -16px;
+  font-size: 20px;
+  color: var(--orange);
+  font-weight: 700;
+  z-index: 1;
+}
+.cf__connector {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 24px;
+  background: var(--bg-light);
+  border-radius: 16px;
+  padding: 28px 40px;
+}
+.cf__connector-left, .cf__connector-right { display: flex; align-items: center; gap: 16px; }
+.cf__connector-right { justify-content: flex-end; }
+.cf__connector-left p, .cf__connector-right p { font-size: 13px; color: var(--text-secondary); font-weight: 500; }
+.cf__connector-divider { width: 1px; height: 40px; background: var(--border); }
+@media (max-width: 768px) {
+  .cf__steps { grid-template-columns: 1fr 1fr; gap: 24px; }
+  .cf__arrow { display: none; }
+  .cf__connector { grid-template-columns: 1fr; gap: 16px; padding: 24px; }
+  .cf__connector-right { justify-content: flex-start; }
+  .cf__connector-divider { width: 40px; height: 1px; }
 }

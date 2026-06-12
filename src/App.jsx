@@ -28,6 +28,7 @@ function Nav() {
         </button>
         <div className={`nav__links ${menuOpen ? 'nav__links--open' : ''}`}>
           <a href="#advisory" onClick={() => setMenuOpen(false)}>Advisory</a>
+<a href="#come-funziona" onClick={() => setMenuOpen(false)}>Come funziona</a>
           <a href="#platform" onClick={() => setMenuOpen(false)}>Platform</a>
           <a href="#moduli" onClick={() => setMenuOpen(false)}>Moduli</a>
           <a href="#about" onClick={() => setMenuOpen(false)}>Chi siamo</a>
@@ -110,7 +111,70 @@ function Advisory() {
     </section>
   )
 }
+function ComeFunziona() {
+  const steps = [
+    {
+      num: '01',
+      title: 'Diagnosi',
+      desc: 'Analizziamo l\'organizzazione: struttura, processi, KPI esistenti, maturità HR. Capiamo dove si perde valore.',
+      icon: '◎',
+    },
+    {
+      num: '02',
+      title: 'Progettazione',
+      desc: 'Costruiamo il sistema di performance su misura: competenze, obiettivi, metriche di controllo. Metodologia Advisory.',
+      icon: '◈',
+    },
+    {
+      num: '03',
+      title: 'Attivazione',
+      desc: 'Configuriamo Matesis Platform sui parametri definiti. People e Analytics vengono impostati sulla realtà specifica dell\'azienda.',
+      icon: '⊞',
+    },
+    {
+      num: '04',
+      title: 'Autonomia',
+      desc: 'L\'azienda gestisce i cicli di valutazione e il controllo in autonomia. Restiamo disponibili per evoluzione e supporto.',
+      icon: '◉',
+    },
+  ]
 
+  return (
+    <section className="come-funziona" id="come-funziona">
+      <div className="container">
+        <div className="section-header">
+          <span className="tag tag--outline">Il processo</span>
+          <h2 className="section-title">Come funziona.</h2>
+          <p className="section-sub">
+            Advisory e Platform non sono due prodotti separati. Sono due fasi dello stesso progetto.
+          </p>
+        </div>
+        <div className="cf__steps">
+          {steps.map((s, i) => (
+            <div className="cf__step" key={i}>
+              <div className="cf__step-num">{s.num}</div>
+              <div className="cf__step-icon">{s.icon}</div>
+              <h3>{s.title}</h3>
+              <p>{s.desc}</p>
+              {i < steps.length - 1 && <div className="cf__arrow">→</div>}
+            </div>
+          ))}
+        </div>
+        <div className="cf__connector">
+          <div className="cf__connector-left">
+            <span className="tag tag--navy">Matesis Advisory</span>
+            <p>Passi 01 e 02</p>
+          </div>
+          <div className="cf__connector-divider"/>
+          <div className="cf__connector-right">
+            <span className="tag tag--orange">Matesis Platform</span>
+            <p>Passi 03 e 04</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
 function Platform() {
   return (
     <section className="platform" id="platform">
@@ -310,6 +374,7 @@ export default function App() {
       <Nav />
       <Hero />
       <Advisory />
+      <ComeFunziona />
       <Platform />
       <Moduli />
       <About />
