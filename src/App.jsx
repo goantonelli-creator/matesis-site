@@ -257,6 +257,176 @@ function Moduli() {
     </section>
   )
 }
+function MockupDemo() {
+  const [active, setActive] = useState(0)
+
+  const screens = [
+    { label: 'Analytics', tag: 'Matesis Analytics' },
+    { label: 'People', tag: 'Matesis People' },
+    { label: 'Workforce', tag: 'Matesis Workforce' },
+  ]
+
+  return (
+    <section className="mockup-demo" id="demo">
+      <div className="container">
+        <div className="section-header">
+          <span className="tag tag--navy">Anteprima</span>
+          <h2 className="section-title">La piattaforma<br/>in azione.</h2>
+          <p className="section-sub">Una preview dell'interfaccia. Ogni tenant è configurato sui processi specifici dell'azienda.</p>
+        </div>
+
+        <div className="md__tabs">
+          {screens.map((s, i) => (
+            <button key={i} className={`md__tab ${active === i ? 'md__tab--active' : ''}`} onClick={() => setActive(i)}>
+              {s.label}
+            </button>
+          ))}
+        </div>
+
+        <div className="md__screen">
+          <div className="md__screen-bar">
+            <div className="md__screen-dots">
+              <span/><span/><span/>
+            </div>
+            <div className="md__screen-url">app.matesis.it</div>
+            <span className={`tag ${active === 0 ? 'tag--orange' : active === 1 ? 'tag--navy' : 'tag--outline'}`}>
+              {screens[active].tag}
+            </span>
+          </div>
+
+          <div className="md__screen-content">
+            {active === 0 && <MockupAnalytics />}
+            {active === 1 && <MockupPeople />}
+            {active === 2 && <MockupWorkforce />}
+          </div>
+        </div>
+
+        <div className="md__cta">
+          <p>Vuoi vedere la piattaforma sul tuo caso specifico?</p>
+          <a href="#contatti" className="btn btn--primary">Prenota una demo di 30 minuti →</a>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function MockupAnalytics() {
+  const kpis = [
+    { label: 'Ricavi YTD', value: '€ 1.24M', delta: '+12%', up: true },
+    { label: 'Margine operativo', value: '18.4%', delta: '+2.1pp', up: true },
+    { label: 'Costo del personale', value: '€ 480K', delta: '+4%', up: false },
+    { label: 'EBITDA', value: '€ 228K', delta: '+8%', up: true },
+  ]
+  const bars = [65, 72, 58, 80, 74, 88, 76, 91, 68, 85, 79, 94]
+  const months = ['Gen','Feb','Mar','Apr','Mag','Giu','Lug','Ago','Set','Ott','Nov','Dic']
+
+  return (
+    <div className="mock-analytics">
+      <div className="mock-analytics__kpis">
+        {kpis.map((k, i) => (
+          <div className="mock-kpi" key={i}>
+            <span className="mock-kpi__label">{k.label}</span>
+            <span className="mock-kpi__value">{k.value}</span>
+            <span className={`mock-kpi__delta ${k.up ? 'mock-kpi__delta--up' : 'mock-kpi__delta--down'}`}>{k.delta}</span>
+          </div>
+        ))}
+      </div>
+      <div className="mock-analytics__chart">
+        <div className="mock-chart-title">Andamento ricavi mensili</div>
+        <div className="mock-bars">
+          {bars.map((h, i) => (
+            <div className="mock-bar-wrap" key={i}>
+              <div className="mock-bar" style={{ height: `${h}%` }}/>
+              <span>{months[i]}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function MockupPeople() {
+  const employees = [
+    { name: 'M. Rossi', role: 'Responsabile HR', score: 87, status: 'Completata' },
+    { name: 'L. Bianchi', role: 'Project Manager', score: 74, status: 'In corso' },
+    { name: 'A. Ferrari', role: 'Consulente Senior', score: 91, status: 'Completata' },
+    { name: 'G. Marino', role: 'Analista', score: 0, status: 'Da avviare' },
+  ]
+
+  return (
+    <div className="mock-people">
+      <div className="mock-people__header">
+        <span className="mock-people__title">Ciclo di valutazione 2024</span>
+        <div className="mock-progress-wrap">
+          <span>3/4 completate</span>
+          <div className="mock-progress"><div className="mock-progress__bar" style={{ width: '75%' }}/></div>
+        </div>
+      </div>
+      <div className="mock-people__list">
+        {employees.map((e, i) => (
+          <div className="mock-person" key={i}>
+            <div className="mock-person__avatar">{e.name.split(' ').map(n => n[0]).join('')}</div>
+            <div className="mock-person__info">
+              <span className="mock-person__name">{e.name}</span>
+              <span className="mock-person__role">{e.role}</span>
+            </div>
+            {e.score > 0 && (
+              <div className="mock-person__score-wrap">
+                <div className="mock-person__score-bar">
+                  <div style={{ width: `${e.score}%`, background: e.score > 80 ? 'var(--navy)' : 'var(--orange)' }}/>
+                </div>
+                <span>{e.score}/100</span>
+              </div>
+            )}
+            <span className={`mock-status mock-status--${e.status === 'Completata' ? 'done' : e.status === 'In corso' ? 'progress' : 'todo'}`}>
+              {e.status}
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+function MockupWorkforce() {
+  const people = [
+    { name: 'M. Rossi', role: 'Resp. HR', tipo: 'Indeterminato', scadenza: '—', cedolini: 12 },
+    { name: 'L. Bianchi', role: 'PM', tipo: 'Determinato', scadenza: '31/12/2024', cedolini: 8 },
+    { name: 'A. Ferrari', role: 'Consulente', tipo: 'Indeterminato', scadenza: '—', cedolini: 12 },
+    { name: 'G. Marino', role: 'Analista', tipo: 'Stage', scadenza: '30/06/2024', cedolini: 3 },
+  ]
+
+  return (
+    <div className="mock-workforce">
+      <div className="mock-table">
+        <div className="mock-table__head">
+          <span>Dipendente</span>
+          <span>Ruolo</span>
+          <span>Contratto</span>
+          <span>Scadenza</span>
+          <span>Cedolini</span>
+        </div>
+        {people.map((p, i) => (
+          <div className="mock-table__row" key={i}>
+            <span className="mock-table__name">
+              <span className="mock-avatar">{p.name.split(' ').map(n => n[0]).join('')}</span>
+              {p.name}
+            </span>
+            <span>{p.role}</span>
+            <span>
+              <span className={`mock-contract mock-contract--${p.tipo === 'Indeterminato' ? 'green' : p.tipo === 'Determinato' ? 'orange' : 'blue'}`}>
+                {p.tipo}
+              </span>
+            </span>
+            <span>{p.scadenza}</span>
+            <span className="mock-table__cedolini">{p.cedolini} 📄</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
 function ModuliAggiuntivi() {
   const core = [
     { tag: 'Matesis People', desc: 'HR, performance management e valutazioni. Incluso in ogni tenant.' },
@@ -456,6 +626,7 @@ export default function App() {
       <ComeFunziona />
       <Platform />
       <Moduli />
+      <MockupDemo />
       <ModuliAggiuntivi />
       <About />
       <CtaFinal />
