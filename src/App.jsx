@@ -85,6 +85,7 @@ function Advisory() {
     { icon: '◈', title: 'Performance Management', desc: 'Sistemi di valutazione, obiettivi e feedback strutturati per far crescere le persone nel tempo.' },
     { icon: '◉', title: 'Controllo di Gestione', desc: 'Modelli di reporting, KPI e full costing per chi vuole capire davvero cosa succede in azienda.' },
     { icon: '◐', title: 'HR & Organizzazione', desc: 'Job design, selezione, sviluppo e piani di carriera costruiti sulla realtà operativa del cliente.' },
+    { icon: '◑', title: 'Ricerca & Selezione', desc: 'Processi strutturati di ricerca, valutazione e selezione del personale. Dalla job description all\'onboarding.' },
   ]
   return (
     <section className="advisory" id="advisory">
@@ -257,6 +258,46 @@ function Moduli() {
     </section>
   )
 }
+function DemoForm() {
+  const [sent, setSent] = useState(false)
+  const [form, setForm] = useState({ nome: '', email: '', azienda: '', interesse: '', note: '' })
+
+  const handleChange = e => setForm({ ...form, [e.target.name]: e.target.value })
+
+  const handleSubmit = () => {
+    if (!form.nome || !form.email || !form.interesse) return
+    window.location.href = `mailto:info@matesis.it?subject=Richiesta demo — ${form.interesse} — ${form.azienda}&body=${encodeURIComponent(`Nome: ${form.nome}\nAzienda: ${form.azienda}\nEmail: ${form.email}\nInteresse: ${form.interesse}\n\nNote: ${form.note}`)}`
+    setSent(true)
+  }
+
+  if (sent) return (
+    <div className="demo-form__thanks">
+      <span>✓</span> Grazie! Si aprirà il tuo client email per inviarci la richiesta.
+    </div>
+  )
+
+  return (
+    <div className="demo-form">
+      <div className="demo-form__row">
+        <input name="nome" placeholder="Nome e cognome *" value={form.nome} onChange={handleChange} />
+        <input name="azienda" placeholder="Azienda" value={form.azienda} onChange={handleChange} />
+      </div>
+      <input name="email" type="email" placeholder="Email *" value={form.email} onChange={handleChange} />
+      <select name="interesse" value={form.interesse} onChange={handleChange}>
+        <option value="">Cosa ti interessa vedere? *</option>
+        <option value="Matesis People">Matesis People</option>
+        <option value="Matesis Analytics">Matesis Analytics</option>
+        <option value="Entrambi">Entrambi (People + Analytics)</option>
+        <option value="Altri moduli sviluppati">Altri moduli sviluppati</option>
+      </select>
+      <textarea name="note" placeholder="Note aggiuntive (facoltativo)" rows={3} value={form.note} onChange={handleChange} />
+      <button className="btn btn--primary demo-form__submit" onClick={handleSubmit}>
+        Prenota la demo →
+      </button>
+      <p className="demo-form__note">* campi obbligatori — ti risponderemo entro 24 ore</p>
+    </div>
+  )
+}
 function MockupDemo() {
   const [active, setActive] = useState(0)
 
@@ -302,9 +343,9 @@ function MockupDemo() {
         </div>
 
         <div className="md__cta">
-          <p>Vuoi vedere la piattaforma sul tuo caso specifico?</p>
-          <a href="#contatti" className="btn btn--primary">Prenota una demo di 30 minuti →</a>
-        </div>
+  <p>Vuoi vedere la piattaforma sul tuo caso specifico?</p>
+  <DemoForm />
+</div>
       </div>
     </section>
   )
