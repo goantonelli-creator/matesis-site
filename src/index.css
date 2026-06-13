@@ -44,7 +44,7 @@ img { max-width: 100%; display: block; }
   border-radius: 100px;
 }
 .tag--navy { background: var(--navy); color: #fff; }
-.tag--orange { background: var(--orange); color: var(--navy-deep); }
+.tag--orange { background: var(--orange); color: #ffffff; }
 .tag--outline { border: 1.5px solid var(--navy); color: var(--navy); background: transparent; }
 
 .btn {
@@ -60,7 +60,7 @@ img { max-width: 100%; display: block; }
   border: none;
   transition: all 0.18s ease;
 }
-.btn--primary { background: var(--orange); color: var(--navy-deep); }
+.btn--primary { background: var(--orange); color: #ffffff; }
 .btn--primary:hover { background: #e8912e; transform: translateY(-1px); }
 .btn--outline-white { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,0.4); }
 .btn--outline-white:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
