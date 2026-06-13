@@ -340,35 +340,35 @@ function Footer() {
           <p>Performance strategy.<br/>Dalle persone ai numeri.</p>
         </div>
         <div className="footer__cols">
-          <div>
-            <h5>Advisory</h5>
-            <ul>
-              <li>Performance Management</li>
-              <li>Controllo di Gestione</li>
-              <li>HR & Organizzazione</li>
-            </ul>
-          </div>
-          <div>
-            <h5>Platform</h5>
-            <ul>
-              <li>Matesis People</li>
-              <li>Matesis Analytics</li>
-              <li>Richiedi demo</li>
-            </ul>
-          </div>
-          <div>
-            <h5>Contatti</h5>
-            <ul>
-              <li><a href="mailto:info@matesis.it">info@matesis.it</a></li>
-              <li><a href="https://www.goffredoantonelli.com" target="_blank" rel="noopener">goffredoantonelli.com</a></li>
-            </ul>
-          </div>
-        </div>
+  <div>
+    <h5>Advisory</h5>
+    <ul>
+      <li><a href="#advisory">Performance Management</a></li>
+      <li><a href="#advisory">Controllo di Gestione</a></li>
+      <li><a href="#advisory">HR & Organizzazione</a></li>
+    </ul>
+  </div>
+  <div>
+    <h5>Platform</h5>
+    <ul>
+      <li><a href="#moduli">Matesis People</a></li>
+      <li><a href="#moduli">Matesis Analytics</a></li>
+      <li><a href="#contatti">Richiedi demo</a></li>
+    </ul>
+  </div>
+  <div>
+    <h5>Contatti</h5>
+    <ul>
+      <li><a href="mailto:info@matesis.it">info@matesis.it</a></li>
+      <li><a href="https://www.goffredoantonelli.com" target="_blank" rel="noopener">goffredoantonelli.com</a></li>
+    </ul>
+  </div>
+</div>
       </div>
       <div className="footer__bottom">
         <div className="container">
           <span>© {new Date().getFullYear()} Matesis — Tutti i diritti riservati</span>
-          <span>P.IVA IT — matesis.it</span>
+          <span>P.IVA IT 02576080697 — matesis.it</span>
         </div>
       </div>
     </footer>
