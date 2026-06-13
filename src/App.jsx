@@ -257,7 +257,79 @@ function Moduli() {
     </section>
   )
 }
+function ModuliAggiuntivi() {
+  const core = [
+    { tag: 'Matesis People', desc: 'HR, performance management e valutazioni. Incluso in ogni tenant.' },
+    { tag: 'Matesis Analytics', desc: 'KPI, forecasting e controllo di gestione. Incluso in ogni tenant.' },
+  ]
+  const progetto = [
+    { tag: 'Matesis Workforce', desc: 'Amministrazione persone, cedolini, visite mediche e contratti.' },
+    { tag: 'Matesis Network', desc: 'Ricerca fornitori per mappa geografica e gestione partner.' },
+    { tag: 'Matesis Planning', desc: 'Pianificazione operativa e gestione delle risorse aziendali.' },
+  ]
+  const roadmap = [
+    { tag: 'Matesis Finance', desc: 'Cash flow operativo, analisi costi/ricavi e gestione finanziaria.' },
+    { tag: 'Matesis Academy', desc: 'Piattaforma per la gestione e l\'erogazione della formazione aziendale.' },
+  ]
 
+  return (
+    <section className="moduli-add" id="moduli-aggiuntivi">
+      <div className="container">
+        <div className="section-header">
+          <span className="tag tag--outline">Ecosistema</span>
+          <h2 className="section-title">Ogni azienda è diversa.<br/>Matesis si adatta.</h2>
+          <p className="section-sub">Due moduli core inclusi in ogni progetto. Un ecosistema di moduli aggiuntivi configurabili sui tuoi processi specifici.</p>
+        </div>
+
+        <div className="ma__group">
+          <div className="ma__group-label">
+            <span className="tag tag--navy">Core — inclusi</span>
+          </div>
+          <div className="ma__grid ma__grid--2">
+            {core.map((m, i) => (
+              <div className="ma__card ma__card--core" key={i}>
+                <h4>{m.tag}</h4>
+                <p>{m.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="ma__group">
+          <div className="ma__group-label">
+            <span className="tag tag--outline">Su progetto — configurabili</span>
+            <p>Disponibili nell'ambito di un progetto Advisory. Sviluppati e adattati sui processi specifici del cliente.</p>
+          </div>
+          <div className="ma__grid ma__grid--3">
+            {progetto.map((m, i) => (
+              <div className="ma__card ma__card--progetto" key={i}>
+                <h4>{m.tag}</h4>
+                <p>{m.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="ma__group">
+          <div className="ma__group-label">
+            <span className="tag tag--outline">In arrivo</span>
+            <p>Moduli in sviluppo attivo. Disponibili nei prossimi mesi.</p>
+          </div>
+          <div className="ma__grid ma__grid--2">
+            {roadmap.map((m, i) => (
+              <div className="ma__card ma__card--roadmap" key={i}>
+                <div className="ma__roadmap-badge">Roadmap</div>
+                <h4>{m.tag}</h4>
+                <p>{m.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </div>
+    </section>
+  )
+}
 function About() {
   return (
     <section className="about" id="about">
@@ -384,6 +456,7 @@ export default function App() {
       <ComeFunziona />
       <Platform />
       <Moduli />
+      <ModuliAggiuntivi />
       <About />
       <CtaFinal />
       <Footer />
