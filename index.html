@@ -34,6 +34,68 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Inter:wght@400;500;600&family=Inter+Tight:wght@500;600&display=swap" rel="stylesheet">
+<!-- Schema.org structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.matesis.it/#organization",
+      "name": "Matesis",
+      "url": "https://www.matesis.it",
+      "logo": "https://www.matesis.it/MATESIS_logo.png",
+      "description": "Sistema integrato di consulenza e software per la gestione della performance organizzativa. Advisory e Platform per PMI italiane.",
+      "email": "info@matesis.it",
+      "vatID": "02576080697",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Jesi",
+        "addressRegion": "AN",
+        "addressCountry": "IT"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/goffredoantonelli"
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://www.matesis.it/#platform",
+      "name": "Matesis Platform",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "description": "Piattaforma SaaS per la gestione della performance organizzativa. Moduli People e Analytics per PMI italiane.",
+      "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/InStock"
+      },
+      "provider": {
+        "@id": "https://www.matesis.it/#organization"
+      }
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://www.matesis.it/#advisory",
+      "name": "Matesis Advisory",
+      "description": "Consulenza in Performance Management, Controllo di Gestione, HR e Organizzazione, Ricerca e Selezione per PMI italiane.",
+      "url": "https://www.matesis.it",
+      "provider": {
+        "@id": "https://www.matesis.it/#organization"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Italia"
+      },
+      "serviceType": [
+        "Performance Management",
+        "Controllo di Gestione",
+        "HR e Organizzazione",
+        "Ricerca e Selezione"
+      ]
+    }
+  ]
+}
+</script>  
 </head>
   <body>
     <div id="root"></div>
