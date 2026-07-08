@@ -1,0 +1,12 @@
+{
+  "routes": [
+    { "src": "/servizi\\.php(.*)", "status": 410, "dest": "/410" },
+    { "src": "/contatti\\.php", "status": 410, "dest": "/410" },
+    { "src": "/recruiting\\.php", "status": 410, "dest": "/410" },
+    { "src": "/privacy\\.php", "status": 410, "dest": "/410" },
+    { "src": "/performance-strategy\\.php", "status": 410, "dest": "/410" },
+    { "src": "/controllo-di-gestione\\.php", "status": 410, "dest": "/410" },
+    { "src": "/about\\.php", "status": 410, "dest": "/410" },
+    { "src": "/(.*)", "dest": "/index.html" }
+  ]
+}
