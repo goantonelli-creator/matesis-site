@@ -82,10 +82,10 @@ function Hero() {
 
 function Advisory() {
   const services = [
-    { icon: '◈', title: 'Performance Management', desc: 'Sistemi di valutazione, obiettivi e feedback strutturati per far crescere le persone nel tempo.' },
-    { icon: '◉', title: 'Controllo di Gestione', desc: 'Modelli di reporting, KPI e full costing per chi vuole capire davvero cosa succede in azienda.' },
-    { icon: '◐', title: 'HR & Organizzazione', desc: 'Job design, selezione, sviluppo e piani di carriera costruiti sulla realtà operativa del cliente.' },
-    { icon: '◑', title: 'Ricerca & Selezione', desc: 'Processi strutturati di ricerca, valutazione e selezione del personale. Dalla job description all\'onboarding.' },
+    { icon: '◈', title: 'Performance Management', desc: 'Sistemi di valutazione, obiettivi e feedback strutturati per far crescere le persone nel tempo.', ai: 'Inclusa analisi e ottimizzazione dei processi con agenti AI.' },
+    { icon: '◉', title: 'Controllo di Gestione', desc: 'Modelli di reporting, KPI e full costing per chi vuole capire davvero cosa succede in azienda.', ai: 'Inclusa automazione del reporting e analisi predittiva con AI.' },
+    { icon: '◐', title: 'HR & Organizzazione', desc: 'Job design, selezione, sviluppo e piani di carriera costruiti sulla realtà operativa del cliente.', ai: 'Inclusi flussi HR automatizzati e supporto AI al job design.' },
+    { icon: '◑', title: 'Ricerca & Selezione', desc: "Processi strutturati di ricerca, valutazione e selezione del personale. Dalla job description all'onboarding.", ai: 'Incluso screening e valutazione dei candidati con AI.' },
   ]
   return (
     <section className="advisory" id="advisory">
@@ -101,6 +101,7 @@ function Advisory() {
               <span className="advisory__icon">{s.icon}</span>
               <h3>{s.title}</h3>
               <p>{s.desc}</p>
+              <p className="advisory__ai">⚡ {s.ai}</p>
             </div>
           ))}
         </div>
@@ -124,7 +125,7 @@ function ComeFunziona() {
     {
       num: '01',
       title: 'Diagnosi',
-      desc: 'Analizziamo l\'organizzazione: struttura, processi, KPI esistenti, maturità HR. Capiamo dove si perde valore.',
+      desc: "Analizziamo l'organizzazione: struttura, processi, KPI esistenti, maturità HR. Capiamo dove si perde valore.",
       icon: '◎',
     },
     {
@@ -136,13 +137,13 @@ function ComeFunziona() {
     {
       num: '03',
       title: 'Attivazione',
-      desc: 'Configuriamo Matesis Platform sui parametri definiti. People e Analytics vengono impostati sulla realtà specifica dell\'azienda.',
+      desc: "Configuriamo Matesis Platform sui parametri definiti. People e Analytics vengono impostati sulla realtà specifica dell'azienda.",
       icon: '⊞',
     },
     {
       num: '04',
       title: 'Autonomia',
-      desc: 'L\'azienda gestisce i cicli di valutazione e il controllo in autonomia. Restiamo disponibili per evoluzione e supporto.',
+      desc: "L'azienda gestisce i cicli di valutazione e il controllo in autonomia. Restiamo disponibili per evoluzione e supporto.",
       icon: '◉',
     },
   ]
@@ -480,7 +481,7 @@ function ModuliAggiuntivi() {
   ]
   const roadmap = [
     { tag: 'Matesis Finance', desc: 'Cash flow operativo, analisi costi/ricavi e gestione finanziaria.' },
-    { tag: 'Matesis Academy', desc: 'Piattaforma per la gestione e l\'erogazione della formazione aziendale.' },
+    { tag: 'Matesis Academy', desc: "Piattaforma per la gestione e l'erogazione della formazione aziendale." },
   ]
 
   return (
