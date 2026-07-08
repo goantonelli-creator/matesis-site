@@ -7,6 +7,7 @@
     { "src": "/performance-strategy\\.php", "status": 410, "dest": "/410" },
     { "src": "/controllo-di-gestione\\.php", "status": 410, "dest": "/410" },
     { "src": "/about\\.php", "status": 410, "dest": "/410" },
+    { "src": "/blog(.*)", "status": 410, "dest": "/410" },
     { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
