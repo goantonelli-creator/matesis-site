@@ -651,12 +651,41 @@ function Footer() {
       </div>
       <div className="footer__bottom">
         <div className="container">
-          <span>© {new Date().getFullYear()} Matesis — Tutti i diritti riservati</span>
+          <span>© {new Date().getFullYear()} Matesis — Tutti i diritti riservati — <a href="#privacy" style={{color:"rgba(255,255,255,0.4)"}}>Privacy & Cookie Policy</a></span>
           <span>P.IVA IT 02576080697 — matesis.it</span>
         </div>
       </div>
     </footer>
   )
+}
+
+
+function Privacy() {
+  const [show, setShow] = React.useState(false);
+  return (
+    <section id="privacy" style={{background:'var(--bg-light)', padding:'80px 0'}}>
+      <div className="container" style={{maxWidth:'760px'}}>
+        <h2 style={{fontFamily:'var(--font-display)', fontSize:'28px', fontWeight:800, marginBottom:'8px'}}>Privacy Policy e Cookie Policy</h2>
+        <p style={{fontSize:'13px', color:'var(--text-light)', marginBottom:'40px'}}>Ultimo aggiornamento: luglio 2026</p>
+
+        <h3 style={{fontFamily:'var(--font-display)', fontSize:'16px', fontWeight:700, marginBottom:'12px', marginTop:'32px'}}>Titolare del trattamento</h3>
+        <p style={{fontSize:'15px', lineHeight:'1.8', color:'var(--text-secondary)'}}>Goffredo Antonelli — P.IVA IT 02576080697 — Jesi (AN), Italia<br/>Email: <a href="mailto:info@matesis.it" style={{color:'var(--orange)'}}>info@matesis.it</a></p>
+
+        <h3 style={{fontFamily:'var(--font-display)', fontSize:'16px', fontWeight:700, marginBottom:'12px', marginTop:'32px'}}>Dati raccolti e finalità</h3>
+        <p style={{fontSize:'15px', lineHeight:'1.8', color:'var(--text-secondary)'}}>Il presente sito raccoglie dati di navigazione (IP, browser, pagine visitate) tramite Google Analytics 4, solo previo consenso. I dati inseriti nel modulo di contatto sono utilizzati esclusivamente per rispondere alla richiesta.</p>
+
+        <h3 style={{fontFamily:'var(--font-display)', fontSize:'16px', fontWeight:700, marginBottom:'12px', marginTop:'32px'}}>Cookie utilizzati</h3>
+        <p style={{fontSize:'15px', lineHeight:'1.8', color:'var(--text-secondary)'}}>Cookie tecnici: <strong>ga_consent</strong> (12 mesi) — memorizza la scelta di consenso.<br/>Cookie analitici (solo con consenso): <strong>_ga</strong>, <strong>_ga_*</strong> — Google Analytics, durata 2 anni.</p>
+
+        <h3 style={{fontFamily:'var(--font-display)', fontSize:'16px', fontWeight:700, marginBottom:'12px', marginTop:'32px'}}>Diritti dell'interessato</h3>
+        <p style={{fontSize:'15px', lineHeight:'1.8', color:'var(--text-secondary)'}}>Hai diritto di accesso, rettifica, cancellazione, opposizione e limitazione del trattamento. Per esercitarli scrivi a <a href="mailto:info@matesis.it" style={{color:'var(--orange)'}}>info@matesis.it</a>. Puoi proporre reclamo al <a href="https://www.garanteprivacy.it" target="_blank" rel="noopener" style={{color:'var(--orange)'}}>Garante della Privacy</a>.</p>
+
+        <h3 style={{fontFamily:'var(--font-display)', fontSize:'16px', fontWeight:700, marginBottom:'12px', marginTop:'32px'}}>Gestione consenso cookie</h3>
+        <p style={{fontSize:'15px', lineHeight:'1.8', color:'var(--text-secondary)'}}>Puoi revocare il consenso ai cookie analitici in qualsiasi momento:</p>
+        <button onClick={() => { localStorage.removeItem('ga_consent'); location.reload(); }} style={{background:'none', border:'1px solid var(--orange)', color:'var(--orange)', padding:'8px 16px', borderRadius:'6px', cursor:'pointer', fontSize:'14px', marginTop:'8px'}}>Gestisci preferenze cookie</button>
+      </div>
+    </section>
+  );
 }
 
 export default function App() {
@@ -672,6 +701,7 @@ export default function App() {
       <ModuliAggiuntivi />
       <About />
       <CtaFinal />
+      <Privacy />
       <Footer />
     </>
   )

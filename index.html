@@ -96,17 +96,61 @@
   ]
 }
 </script>  
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-T1DVZ6ZFMW"></script>
+  <!-- Google Analytics (condizionale al consenso) -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-T1DVZ6ZFMW');
+    if (localStorage.getItem('ga_consent') === 'true') {
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-T1DVZ6ZFMW';
+      document.head.appendChild(s);
+      gtag('js', new Date());
+      gtag('config', 'G-T1DVZ6ZFMW');
+    }
   </script>
 </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
-  </body>
+  
+  <!-- Cookie Banner -->
+  <div id="cookie-banner" style="display:none; position:fixed; bottom:0; left:0; right:0; background:#111e30; color:#fff; padding:20px 24px; z-index:9999; display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; box-shadow:0 -4px 20px rgba(0,0,0,0.3);">
+    <p style="margin:0; font-size:14px; line-height:1.6; max-width:700px;">
+      Questo sito utilizza cookie analitici (Google Analytics) per capire come viene utilizzato.
+      <a href="#privacy" style="color:#E8751A; text-decoration:underline;">Leggi la cookie policy</a>
+    </p>
+    <div style="display:flex; gap:12px; flex-shrink:0;">
+      <button id="cookie-reject" style="background:transparent; border:1px solid rgba(255,255,255,0.3); color:rgba(255,255,255,0.7); padding:8px 16px; border-radius:6px; cursor:pointer; font-size:13px;">Rifiuta</button>
+      <button id="cookie-accept" style="background:#E8751A; border:none; color:#fff; padding:8px 16px; border-radius:6px; cursor:pointer; font-size:13px; font-weight:700;">Accetta</button>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      var consent = localStorage.getItem('ga_consent');
+      if (consent === null) {
+        document.getElementById('cookie-banner').style.display = 'flex';
+      }
+      document.getElementById('cookie-accept')?.addEventListener('click', function() {
+        localStorage.setItem('ga_consent', 'true');
+        document.getElementById('cookie-banner').style.display = 'none';
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-T1DVZ6ZFMW';
+        document.head.appendChild(s);
+        s.onload = function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-T1DVZ6ZFMW');
+        };
+      });
+      document.getElementById('cookie-reject')?.addEventListener('click', function() {
+        localStorage.setItem('ga_consent', 'false');
+        document.getElementById('cookie-banner').style.display = 'none';
+      });
+    })();
+  </script>
+</body>
 </html>
