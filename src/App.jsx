@@ -224,7 +224,7 @@ function Moduli() {
     {
       tag: 'Matesis People', tagClass: 'tag--navy',
       title: 'Le persone al centro della strategia.',
-      points: ['Valutazioni della performance con self-assessment e feedback del manager','Cicli di valutazione configurabili per competenze e obiettivi','Gestione dei contratti, cedolini e visite mediche','Development briefing e piani di sviluppo individuali','Profili per livello CCNL con indicatori comportamentali'],
+      points: ['Valutazioni della performance con self-assessment e feedback del manager','Cicli di valutazione configurabili per competenze e obiettivi','Gestione dei contratti, cedolini e visite mediche','Development briefing e piani di sviluppo individuali','Profili per livello CCNL con indicatori comportamentali','Report di trasparenza retributiva conformi alla normativa'],
       accent: 'var(--navy)',
     },
     {
