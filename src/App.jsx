@@ -478,12 +478,12 @@ function ModuliAggiuntivi() {
   const core = [
     { tag: 'Matesis People', desc: 'HR, performance management e valutazioni. Incluso in ogni tenant.' },
     { tag: 'Matesis Analytics', desc: 'KPI, forecasting e controllo di gestione. Incluso in ogni tenant.' },
+    { tag: 'Matesis CRM', desc: 'Lead, contatti ed eventi lungo tutto il processo commerciale, con temperatura dei lead e promemoria di ricontatto. Incluso in ogni tenant.' },
   ]
   const progetto = [
     { tag: 'Matesis Workforce', desc: 'Amministrazione persone, cedolini, visite mediche e contratti.' },
     { tag: 'Matesis Network', desc: 'Ricerca fornitori per mappa geografica e gestione partner.' },
     { tag: 'Matesis Planning', desc: 'Pianificazione operativa e gestione delle risorse aziendali.' },
-    { tag: 'Matesis CRM', desc: 'Lead, contatti ed eventi lungo tutto il processo commerciale, con temperatura dei lead e promemoria di ricontatto.' },
   ]
   const roadmap = [
     { tag: 'Matesis Finance', desc: 'Cash flow operativo, analisi costi/ricavi e gestione finanziaria.' },
@@ -496,14 +496,14 @@ function ModuliAggiuntivi() {
         <div className="section-header">
           <span className="tag tag--outline">Ecosistema</span>
           <h2 className="section-title">Ogni azienda è diversa.<br/>Matesis si adatta.</h2>
-          <p className="section-sub">Due moduli core inclusi in ogni progetto. Un ecosistema di moduli aggiuntivi configurabili sui tuoi processi specifici.</p>
+          <p className="section-sub">Tre moduli core inclusi in ogni progetto. Un ecosistema di moduli aggiuntivi configurabili sui tuoi processi specifici.</p>
         </div>
 
         <div className="ma__group">
           <div className="ma__group-label">
             <span className="tag tag--navy">Core — inclusi</span>
           </div>
-          <div className="ma__grid ma__grid--2">
+          <div className="ma__grid ma__grid--3">
             {core.map((m, i) => (
               <div className="ma__card ma__card--core" key={i}>
                 <h4>{m.tag}</h4>
@@ -518,7 +518,7 @@ function ModuliAggiuntivi() {
             <span className="tag tag--outline">Su progetto — configurabili</span>
             <p>Disponibili nell'ambito di un progetto Advisory. Sviluppati e adattati sui processi specifici del cliente.</p>
           </div>
-          <div className="ma__grid ma__grid--2">
+          <div className="ma__grid ma__grid--3">
             {progetto.map((m, i) => (
               <div className="ma__card ma__card--progetto" key={i}>
                 <h4>{m.tag}</h4>
