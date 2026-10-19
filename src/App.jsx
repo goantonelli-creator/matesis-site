@@ -209,6 +209,11 @@ function Platform() {
             <h4>Pensato per chi non ha un IT</h4>
             <p>Interfaccia semplice, onboarding guidato, supporto incluso.</p>
           </div>
+          <div className="platform__feature">
+            <div className="platform__feature-icon">⇄</div>
+            <h4>Processi aziendali sotto controllo</h4>
+            <p>Fasi, responsabili e tempi di ogni processo sono configurati nella piattaforma: sai chi deve fare cosa e cosa è in ritardo.</p>
+          </div>
         </div>
         <div className="platform__cta-row">
           <a href="#contatti" className="btn btn--primary">Scrivici per una demo</a>
@@ -478,6 +483,7 @@ function ModuliAggiuntivi() {
     { tag: 'Matesis Workforce', desc: 'Amministrazione persone, cedolini, visite mediche e contratti.' },
     { tag: 'Matesis Network', desc: 'Ricerca fornitori per mappa geografica e gestione partner.' },
     { tag: 'Matesis Planning', desc: 'Pianificazione operativa e gestione delle risorse aziendali.' },
+    { tag: 'Matesis CRM', desc: 'Lead, contatti ed eventi lungo tutto il processo commerciale, con temperatura dei lead e promemoria di ricontatto.' },
   ]
   const roadmap = [
     { tag: 'Matesis Finance', desc: 'Cash flow operativo, analisi costi/ricavi e gestione finanziaria.' },
@@ -512,7 +518,7 @@ function ModuliAggiuntivi() {
             <span className="tag tag--outline">Su progetto — configurabili</span>
             <p>Disponibili nell'ambito di un progetto Advisory. Sviluppati e adattati sui processi specifici del cliente.</p>
           </div>
-          <div className="ma__grid ma__grid--3">
+          <div className="ma__grid ma__grid--2">
             {progetto.map((m, i) => (
               <div className="ma__card ma__card--progetto" key={i}>
                 <h4>{m.tag}</h4>
@@ -661,11 +667,38 @@ function Footer() {
 
 
 function Privacy() {
-  const [show, setShow] = React.useState(false);
+  const [open, setOpen] = useState(false)
+
+  useEffect(() => {
+    const sync = () => setOpen(window.location.hash === '#privacy')
+    sync()
+    window.addEventListener('hashchange', sync)
+    return () => window.removeEventListener('hashchange', sync)
+  }, [])
+
+  useEffect(() => {
+    if (!open) return
+    const onKey = e => { if (e.key === 'Escape') close() }
+    document.addEventListener('keydown', onKey)
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.removeEventListener('keydown', onKey)
+      document.body.style.overflow = ''
+    }
+  }, [open])
+
+  const close = () => {
+    history.replaceState(null, '', window.location.pathname + window.location.search)
+    setOpen(false)
+  }
+
+  if (!open) return null
   return (
-    <section id="privacy" style={{background:'var(--bg-light)', padding:'80px 0'}}>
-      <div className="container" style={{maxWidth:'760px'}}>
-        <h2 style={{fontFamily:'var(--font-display)', fontSize:'28px', fontWeight:800, marginBottom:'8px'}}>Privacy Policy e Cookie Policy</h2>
+    <div className="privacy-modal" onClick={close}>
+      <div className="privacy-modal__box" role="dialog" aria-modal="true" aria-labelledby="privacy-title" onClick={e => e.stopPropagation()}>
+        <button className="privacy-modal__close" onClick={close} aria-label="Chiudi">×</button>
+      <div style={{maxWidth:'760px'}}>
+        <h2 id="privacy-title" style={{fontFamily:'var(--font-display)', fontSize:'28px', fontWeight:800, marginBottom:'8px'}}>Privacy Policy e Cookie Policy</h2>
         <p style={{fontSize:'13px', color:'var(--text-light)', marginBottom:'40px'}}>Ultimo aggiornamento: luglio 2026</p>
 
         <h3 style={{fontFamily:'var(--font-display)', fontSize:'16px', fontWeight:700, marginBottom:'12px', marginTop:'32px'}}>Titolare del trattamento</h3>
@@ -684,7 +717,8 @@ function Privacy() {
         <p style={{fontSize:'15px', lineHeight:'1.8', color:'var(--text-secondary)'}}>Puoi revocare il consenso ai cookie analitici in qualsiasi momento:</p>
         <button onClick={() => { localStorage.removeItem('ga_consent'); location.reload(); }} style={{background:'none', border:'1px solid var(--orange)', color:'var(--orange)', padding:'8px 16px', borderRadius:'6px', cursor:'pointer', fontSize:'14px', marginTop:'8px'}}>Gestisci preferenze cookie</button>
       </div>
-    </section>
+      </div>
+    </div>
   );
 }
 
